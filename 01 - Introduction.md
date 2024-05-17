@@ -18,12 +18,12 @@
 Consider you have written the source code of a C program, so you have a source code folder like this:
 ```
 project
-    src
-        main.c
-        file1.h
-        file1.c
-        file2.h
-        file2.c
+└── src
+    ├── main.c
+    ├── file1.h
+    ├── file1.c
+    ├── file2.h
+    └── file2.c
 ```
 
 To compile this, you need to perform a series of steps on the command line, typically:
@@ -145,26 +145,26 @@ However, this is the structure I have seen most often (with these specific folde
 
 ```
 project
-    CMakeLists.txt
-    src
-        main.c
-        file1.h
-        file1.c
-        file2.h
-        file2.c
-    vendor
-        Lib001
-            CMakeLists.txt
-            src
-        Lib002
-            CMakeLists.txt
-            src
-            vendor
-        Lib003
-            CMakeLists.txt
-            src
-    build
-    bin
+├── CMakeLists.txt
+├── src
+│   ├── main.c
+│   ├── file1.h
+│   ├── file1.c
+│   ├── file2.h
+│   └── file2.c
+├── vendor
+│   ├── Lib001
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   ├── Lib002
+│   │   ├── CMakeLists.txt
+│   │   └── src
+│   │       └── vendor
+│   └── Lib003
+│       ├── CMakeLists.txt
+│       └── src
+├── build
+└── bin
 ```
 
 *project* is the root directory containing the entire project.  

@@ -23,27 +23,27 @@ The goal is precisely this: to be able to call the functions of *ini.h* within *
 
 ```
 pippo
-	CMakeLists.txt
-	src
-		main.c
-		file1.h
-		file1.c
-		file2.h
-		file2.c
-	vendor
-		Lib001
-            CMakeLists.txt
-		Lib002
-            CMakeLists.txt
-		inih
-			CMakeLists.txt
-			src
-                ini.c
-            include
-                inih
-                    ini.h
-	build
-	bin
+├── CMakeLists.txt
+├── src
+│   ├── main.c
+│   ├── file1.h
+│   ├── file1.c
+│   ├── file2.h
+│   └── file2.c
+├── vendor
+│   ├── Lib001
+│   │   └── CMakeLists.txt
+│   ├── Lib002
+│   │   └── CMakeLists.txt
+│   └── inih
+│       ├── CMakeLists.txt
+│       ├── src
+│       │   └── ini.c
+│       └── include
+│           └── inih
+│               └── ini.h
+├── build
+└── bin
 ```
 
 Clarifications:
