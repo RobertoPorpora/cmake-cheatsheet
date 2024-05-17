@@ -2,29 +2,36 @@
 
 ```CMake
 
+# require a minimum cmake version
 cmake_minimum_required(VERSION 3.14)
 
-
-
-############
-# sets the variable PROJECT_NAME = "AnyNameYouWant"
-############
-
+# set the variable PROJECT_NAME = "AnyNameYouWant"
 project(AnyNameYouWant)
 
+# Finds all .c filenames from 'src' folder
+# and stores all these names into an array called 'SOURCES'
+file(GLOB SOURCES "src/*.c")
+
+# Create an executable called as 'PROJECT_NAME' created by compiling 'SOURCES'
+add_executable(${PROJECT_NAME} ${SOURCES})
 
 
-############
-# Finds all .cpp and .hpp filenames from 'src' folder
-# and stores all these names into an array called 'srcArray'
-############
+## Put the compiled binary into another subfolder called 'dist'
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/dist)
 
-file(GLOB
-srcArray
-    "src/*.hpp"
-    "src/*.cpp"
+## Copy 'resources' folder into the compiled binary directory
+add_custom_target(
+    copy_resources ALL
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${PROJECT_SOURCE_DIR}/resources
+    ${EXECUTABLE_OUTPUT_PATH}/resources
+    COMMENT "Copying resources into binary directory"
 )
+add_dependencies(${PROJECT_NAME} copy_resources)
 
+
+## Tell gcc that this is a GUI program and not a console program
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
 
 
 ############
@@ -87,25 +94,6 @@ if (NOT raylib_cpp_FOUND)
 endif()
 
 
-
-## Create an executable called as 'PROJECT_NAME' created by compiling 'SOURCES'
-add_executable(${PROJECT_NAME} ${SOURCES})
-
-## Tell gcc that this is a GUI program and not a console program
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mwindows")
-
-## Put the compiled binary into another subfolder called 'dist'
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/dist)
-
-## Copy 'resources' folder into the compiled binary directory
-add_custom_target(
-    copy_resources ALL
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${PROJECT_SOURCE_DIR}/resources
-    ${EXECUTABLE_OUTPUT_PATH}/resources
-    COMMENT "Copying resources into binary directory"
-)
-add_dependencies(${PROJECT_NAME} copy_resources)
 
 ## I don't know...
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 11)
