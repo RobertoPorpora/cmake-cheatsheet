@@ -201,17 +201,20 @@ This file, excluding the necessary comments for explanation, could consist of on
 # inline comments after instructions are also allowed.
 #######################################
 
+
 #######################################
 # define a minimum cmake version required to execute this script
 #######################################
 
 cmake_minimum_required(VERSION 3.26)
 
+
 #######################################
 # name the project 'project'
 #######################################
 
 project(project)
+
 
 #######################################
 # declare that the 'vendor/Lib001' folder contains another 'CMakeLists.txt' file
@@ -224,12 +227,11 @@ add_subdirectory(vendor/Lib001)
 add_subdirectory(vendor/Lib002)
 add_subdirectory(vendor/Lib003)
 
+
 #######################################
 # define an executable target named 'project'.
 # i.e., the build output will be an executable named 'project(.exe)'.
-# this
-
- file should be obtained by compiling the files in src.
+# this file should be obtained by compiling the files in src.
 #######################################
 
 add_executable(
@@ -240,6 +242,7 @@ project
     src/file2.h
     src/file2.c
 )
+
 
 #######################################
 # the 'project' target depends on other targets generated at this point.
@@ -253,6 +256,7 @@ project
 # - 'lib1' is a (private) dependency of 'project'
 # - 'lib2' is a (private) dependency of 'project'
 # - 'lib3' is a (private) dependency of 'project'
+#######################################
 
 target_link_libraries(
 project
@@ -261,9 +265,11 @@ project
     PRIVATE lib3
 )
 
+
 #######################################
 # request to use the 'bin' folder
 # as the output for the compilation of the 'project' target
+#######################################
 
 set_target_properties(
 project
