@@ -10,7 +10,7 @@ To get the most out of this cheatsheet, browse through the markdown files direct
 
 ## Contributing
 
-We welcome contributions! If you have improvements, additional examples, or new topics to cover, please feel free to submit a pull request.
+Contributions are welcome! If you have improvements, additional examples, or new topics to cover, please feel free to submit a pull request.
 
 ## License
 
