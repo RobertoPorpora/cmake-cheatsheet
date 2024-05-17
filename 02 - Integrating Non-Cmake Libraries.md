@@ -11,6 +11,9 @@ Regarding these libraries, we just need to know that:
 - *Lib001* exports a `library STATIC` target called `lib1`
 - *Lib002* exports a `library STATIC` target called `lib2`
 
+> **Narrative fact:** "Pippo" is a well known nickname in Italy, it origins from the full name "Filippo".  
+**Fun fact:** The Disney character "Goofy" is actually called "Pippo" in Italian dubbed animated cartoons.  
+
 ## Objective
 This example is independent of the content of src.  
 We only need to know that by setting up the project this way, it will be possible to write `#include "ini.h"` and use the functions contained in ini.h within the source files.  
